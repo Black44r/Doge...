@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+      user-select: none;
+      overflow-y: hidden;
+      margin-top: 30px;
+      padding-bottom: 30px;
+      overflow-x: hidden !important;
+    }
+
+    .root_main {
+      height: 100vh;
+      width: 100vw;
+      position: fixed;
+      box-sizing: border-box;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      overflow-y: scroll;
+      overflow-x: hidden !important;
+    }
+
+    .swal2-title{
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: 4vw !important;
+      font-family: Arial, sans-serif !important;
+    }
+
+    .swal2-toast {
+      border: #ddd solid 1px !important;
+      background: white !important;
+      box-shadow: none !important;
+      margin-top: 10vh !important;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script>
+    var TApp_GlobalConfig = {};
+    try {
+      var temp_tapp = atob(decodeURIComponent(getUrlParam("tapp"))).split("|");
+      TApp_GlobalConfig = { api_host: temp_tapp[0], cdn_host: temp_tapp[1], project_id: temp_tapp[2] };
+    } catch (error) {
+      console.log(error);
+    }
+    function getUrlParam(a) {
+      var d, b = new RegExp("(^|&)" + a + "=([^&]*)(&|$)"), c = window.location.search.substr(1).match(b); return null != c ? unescape(c[2]) : (d = window.location.href.split("#"), d.length > 1 && (d = d[1].match(b), null != d) ? unescape(d[2]) : null)
+    }
+    function addGA(id) {
+      console.log("id",id);
+      if (location.hostname != 'localhost' && location.hostname != '127.0.0.1') {
+        const script = document.createElement('script');
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+        script.async = true;
+        document.head.appendChild(script);
+        script.onload = () => {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', id);
+        };
+      }
+    }
+  </script>
+  <script type="module" crossorigin src="assets/index-BQDcm6A-.js"></script>
+  <link rel="stylesheet" crossorigin href="assets/index-Dw__nXw3.css">
+</head>
+
+<body>
+  <div id="app" class="root_main"></div>
+</body>
+</html>
